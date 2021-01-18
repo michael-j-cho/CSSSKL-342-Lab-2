@@ -1,0 +1,5 @@
+Consider the call to display2() in main(), what's wrong with the call?
+
+The argument being passed in is a reference. However, the parameter of
+display2 is looking for the refrence of an int. I need to dereference 
+aPtr to pass as an int value.
