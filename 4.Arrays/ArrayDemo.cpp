@@ -10,17 +10,17 @@
 using namespace std;
 
 // Forward declarations.
-void display(int data[], int size);
-void bubble(int data[], int size);
-void swap(int data[], int idx1, int idx2);
-int linearSearch(int arr[], int size, int target);
+void display(int *ptr, int size);
+void bubble(int* ptr, int size);
+void swap(int* idx1, int* idx2);
+int linearSearch(int* ptr, int size, int target);
 
 int main(int argc, const char * argv[])
 {
   const int SIZE = 7;
   // These are auto variables.
-  int set[] = {1,4,3,2,5,9,8}; // Size implicit
-  int set2[] = {30, 23, 25, 19, 100, 12, 7};
+  int *set = new int[SIZE] {1,4,3,2,5,9,8}; // Size implicit
+  int *set2 = new int[SIZE] {30, 23, 25, 19, 100, 12, 7};
   // How does it look like in JAVA?
   // int[] myArray = new int[3];
   // int[] myArray = {1, 2, 3};
@@ -33,18 +33,22 @@ int main(int argc, const char * argv[])
   bubble(set, SIZE);
   display(set, SIZE);
     
+  delete[] set;
+  delete[] set2;
+  set = nullptr;
+  set2 = nullptr;
+  
   return 0;
 }
 
-void display(int data[], int size) {
+void display(int* ptr, int size) {
   for(int i = 0; i < size; i++) {
-    cout << data[i] << ",";
+    cout << ptr[i] << ",";
   }
   cout << std::endl;
 }
 
-void bubble(int data[], int size) {
-  int *ptr = data;
+void bubble(int* ptr, int size) {
   for(int i = 0; i < size; i++) {
     for(int k = 0; k < size - 1 - i; k++) {
       if(ptr[k] < ptr[k+1]) {
@@ -52,6 +56,7 @@ void bubble(int data[], int size) {
       }
     }
   }
+// Am I supposed to delete ptr?
 }
 
 void swap(int *idx1, int *idx2) {
@@ -60,9 +65,9 @@ void swap(int *idx1, int *idx2) {
   *idx2 = temp;
 }
 
-int linearSearch(int arr[], int size, int target) {
+int linearSearch(int* ptr, int size, int target) {
   for(int i = 0; i < size; i++) {
-    if(arr[i] == target) {
+    if(ptr[i] == target) {
       return i;
     }
   }

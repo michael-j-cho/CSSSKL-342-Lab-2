@@ -1,3 +1,5 @@
-    // if(*ptr < *ptr++) {
-    //   swap(*ptr, *ptr);
-    // }
+  // for(int i = 0; i < size; i++) {
+  //   if(arr[i] == target) {
+  //     return i;
+  //   }
+  // }
