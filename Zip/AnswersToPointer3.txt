@@ -1,6 +1,5 @@
-Now, on the Linux machines, try running
-     valgrind --leak-check=full <Your Executable>
-What do you see? Why? 
+Now, on the Linux machines, try running valgrind --leak-check=full
+<Your Executable> What do you see? Why? 
 
-I see four errors. Valgrind checks for memory leaks.
-Pointers are not being deleted properly.
+     I see four errors. Valgrind checks for memory leaks.
+     Pointers are not being deleted properly.

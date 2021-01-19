@@ -10,5 +10,5 @@ Which version of the code do you think is better? Why?
 
 Dynamic memory allocation best practices:
 
-Make sure to delete the pointer when you are done.
-Also, set the pointer to nullptr as a precaution.
+    Make sure to delete the pointer when you are done.
+    Also, set the pointer to nullptr as a precaution.
