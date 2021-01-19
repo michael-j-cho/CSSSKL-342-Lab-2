@@ -13,6 +13,7 @@ using namespace std;
 void display(int data[], int size);
 void bubble(int data[], int size);
 void swap(int data[], int idx1, int idx2);
+int linearSearch(int arr[], int size, int target);
 
 int main(int argc, const char * argv[])
 {
@@ -24,7 +25,7 @@ int main(int argc, const char * argv[])
   // int[] myArray = new int[3];
   // int[] myArray = {1, 2, 3};
   // int[] myArray = new int[] {1, 2, 3};
-    
+  cout << linearSearch(set, SIZE, 9) << endl;
   // You have to pass the size in; a C++ array is just a dumb block of
   // storage; no size information is carried with it and no bounds
   // checking is done.
@@ -43,18 +44,28 @@ void display(int data[], int size) {
 }
 
 void bubble(int data[], int size) {
+  int *ptr = data;
   for(int i = 0; i < size; i++) {
     for(int k = 0; k < size - 1 - i; k++) {
-      if(data[k] < data[k+1]) {
-		  swap(data, k, k+1);
+      if(ptr[k] < ptr[k+1]) {
+		  swap(*(ptr+k), *(ptr+k+1));
       }
     }
   }
 }
 
-void swap(int data[], int idx1, int idx2) {
-  int temp = data[idx1];
-  data[idx1] = data[idx2];
-  data[idx2] = temp;
+void swap(int *idx1, int *idx2) {
+  int temp = *idx1;
+  *idx1 = *idx2;
+  *idx2 = temp;
+}
+
+int linearSearch(int arr[], int size, int target) {
+  for(int i = 0; i < size; i++) {
+    if(arr[i] == target) {
+      return i;
+    }
+  }
+  return -1;
 }
  

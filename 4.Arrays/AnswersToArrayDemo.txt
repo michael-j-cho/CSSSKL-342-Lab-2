@@ -1,0 +1,4 @@
+How are the declarations of the arrays set and set2 different
+than how they would be declared in Java?
+
+In Java, the brackets are after the data type. Ex. int[] set = {1, 2, 3};
